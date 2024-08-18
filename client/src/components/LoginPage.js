@@ -28,7 +28,7 @@ const Login = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', minHeight: '100vh', backgroundImage: "linear-gradient(#00d5ff,#0095ff,rgba(93,0,255,.555))" }}>
       <div style={{ background: '#fff', padding: '1rem', width: '40%', borderRadius: '0.25rem' }}>
-        <h2 style={{ marginBottom: '1rem', color: '#007bff' }}>Faculty Login</h2>
+        <h2 style={{ marginBottom: '1rem', color: '#007bff' }}>Admin Login</h2>
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '1rem', textAlign: 'left' }}>
             <label htmlFor="exampleInputEmail1" style={{ fontWeight: 'bold' }}>Email Id</label>
@@ -57,7 +57,7 @@ const Login = () => {
           <button type="submit" className="btn btn-primary" style={{ cursor: 'pointer' }}>Login</button>
         </form>
         <p style={{ margin: '0.5rem 0' }}>Don't have an account?</p>
-        <Link to='/register' className="btn btn-secondary" style={{ cursor: 'pointer' }}>Register</Link>
+        
       </div>
     </div>
   );
