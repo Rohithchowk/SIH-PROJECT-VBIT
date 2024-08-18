@@ -12,7 +12,7 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:5000/api/register', { name, email, password })
+    axios.post('https://sih-project-vbit-2.onrender.com/api/register', { name, email, password })
       .then(result => {
         console.log(result);
         if (result.data === "Already registered") {

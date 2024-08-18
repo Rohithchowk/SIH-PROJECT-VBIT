@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:5000/api/login', { email, password })
+    axios.post('https://sih-project-vbit-2.onrender.com/api/login', { email, password })
       .then(result => {
         console.log(result);
         if (result.data === "Success") {
