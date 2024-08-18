@@ -1,8 +1,8 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const WasteManagement = require('../models/wastemanagement');
 const router = express.Router();
+const WasteManagement = require('../models/wastemanagement');
 
+// Get all requests
 router.get('/requests', async (req, res) => {
     try {
         const requests = await WasteManagement.find();
@@ -13,11 +13,9 @@ router.get('/requests', async (req, res) => {
     }
 });
 
+// Post a new request
 router.post('/requests', async (req, res) => {
     const { description } = req.body;
-    if (!description) {
-        return res.status(400).json({ message: "Description is required" });
-    }
     try {
         const newRequest = new WasteManagement({ description, status: 'Pending' });
         const savedRequest = await newRequest.save();
@@ -28,6 +26,7 @@ router.post('/requests', async (req, res) => {
     }
 });
 
+// Update a request
 router.put('/requests/:id', async (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
@@ -36,7 +35,7 @@ router.put('/requests/:id', async (req, res) => {
         const updatedRequest = await WasteManagement.findByIdAndUpdate(
             id, 
             { status },
-            { new: true, runValidators: true } // Return the updated document and validate
+            { new: true } // Return the updated document
         );
 
         if (updatedRequest) {
@@ -50,6 +49,7 @@ router.put('/requests/:id', async (req, res) => {
     }
 });
 
+// Delete a request
 router.delete('/requests/:id', async (req, res) => {
     const { id } = req.params;
 

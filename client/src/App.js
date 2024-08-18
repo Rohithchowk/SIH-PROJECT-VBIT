@@ -1,30 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './App.css';
-import AddRequestForm from './components/AddRequestForm';
-import RequestList from './components/RequestList';
+import Home from "./components/Home";
+import React from "react";
+import Login from "./components/LoginPage";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import Register from "./components/Register";
+import Landing from "./components/Landing";
 
-const App = () => {
-    const [requests, setRequests] = useState([]);
+const App=()=>{
 
-    const fetchRequests = async () => {
-        const response = await axios.get('https://sih-project-vbit.onrender.com/api/requests/');
-        setRequests(response.data);
-    };
+  return(
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Landing/>}/>
+      <Route path="/Home" element={<Home/>}/>
+      <Route path="/AdminLogin" element={<Login/>}/>
+      <Route path="/register" element={<Register/>}/>
+    </Routes>
+    </BrowserRouter>
+  )
 
-    useEffect(() => {
-        fetchRequests();
-    }, []);
-
-    return (
-        <div className="container">
-            <header>
-                <h1>Waste Management System</h1>
-            </header>
-            <AddRequestForm fetchRequests={fetchRequests} />
-            <RequestList requests={requests} fetchRequests={fetchRequests} />
-        </div>
-    );
-};
+}
 
 export default App;
