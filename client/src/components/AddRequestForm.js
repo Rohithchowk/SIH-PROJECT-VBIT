@@ -8,7 +8,7 @@ const AddRequestForm = ({ fetchRequests }) => {
         e.preventDefault();
         if (!description) return;
         try {
-            await axios.post('http://localhost:5000/api/requests', { description });
+            await axios.post('https://sih-project-vbit.onrender.com/api/requests', { description });
             setDescription('');
             fetchRequests();
         } catch (error) {

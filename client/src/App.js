@@ -8,7 +8,7 @@ const App = () => {
     const [requests, setRequests] = useState([]);
 
     const fetchRequests = async () => {
-        const response = await axios.get('http://localhost:5000/api/requests');
+        const response = await axios.get('https://sih-project-vbit.onrender.com/api/requests/');
         setRequests(response.data);
     };
 

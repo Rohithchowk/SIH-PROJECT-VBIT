@@ -4,7 +4,7 @@ import axios from 'axios';
 const RequestItem = ({ request, fetchRequests }) => {
     const handleComplete = async () => {
         try {
-            await axios.put(`http://localhost:5000/api/requests/${request._id}`, { status: 'Completed' });
+            await axios.put(`https://sih-project-vbit.onrender.com/api/requests/${request._id}`, { status: 'Completed' });
             fetchRequests();
         } catch (error) {
             console.error('Error completing request:', error);
@@ -13,7 +13,7 @@ const RequestItem = ({ request, fetchRequests }) => {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`http://localhost:5000/api/requests/${request._id}`);
+            await axios.delete(`https://sih-project-vbit.onrender.com/api/requests/${request._id}`);
             fetchRequests();
         } catch (error) {
             console.error('Error deleting request:', error);
